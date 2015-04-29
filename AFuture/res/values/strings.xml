@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AFuture</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_list_view">ListViewActivity</string>
+    <string name="title_activity_my_list">MyListActivity</string>
+    <string name="title_activity_simple_cursor">SimpleCursorAdapterListView</string>
+    <string name="title_activity_simple_adapter">SimpleAdapterActivity</string>
+    <string name="title_activity_my">MyActivity</string>
+    <string name="title_my_adapter">MyAdapter</string>
+
+</resources>
