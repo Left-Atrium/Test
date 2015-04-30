@@ -11,6 +11,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.afuture.R;
+import com.afuture.listview.listview.MyAdapter;
+import com.afuture.listview.listview.MyListActivity;
+import com.afuture.listview.listview.SimpleAdapterActivity;
+import com.afuture.listview.listview.SimpleCursorAdapterListView;
 
 public class ListViewActivity extends Activity {
 	Button listview, simplecursorAdapter, simpleAdapter, myAdapter;
