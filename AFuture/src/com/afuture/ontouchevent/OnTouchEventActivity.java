@@ -11,23 +11,26 @@ import android.view.MotionEvent;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Scroller;
 
 import com.afuture.R;
 
 public class OnTouchEventActivity extends Activity {
+	Scroller myscroller;
 	CostumedListView lv = null;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ontouchevent);
 		lv = (CostumedListView) findViewById(R.id.lv);
+		myscroller = new Scroller(this);
 	}
 	@Override
 	protected void onResume() {
 		super.onResume();
-		ArrayAdapter<String> aa = new ArrayAdapter<String>(this, 
-														android.R.layout.simple_list_item_1, 
-														getData());
+		ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
+												R.layout.item_view, R.id.list_item, 
+												getData());
 		lv.setAdapter(aa);
 		
 		 
@@ -42,8 +45,7 @@ public class OnTouchEventActivity extends Activity {
 			Log.i("parentoutput", "DownY = " + y);
 			break;
 		case MotionEvent.ACTION_MOVE:
-			Log.i("parentoutput", "MoveX = " + x);
-			Log.i("parentoutput", "MoveY = " + y);
+			myscroller.startScroll((int)x, 0, dx, dy);
 			break;
 		default:
 			break;
