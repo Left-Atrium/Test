@@ -5,7 +5,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
@@ -15,7 +18,6 @@ public class CustomView extends LinearLayout {
 
 	private Scroller mScroller;
 	private GestureDetector mGestureDetector;
-	
 	public CustomView(Context context) {
 		this(context, null);
 	}
@@ -25,9 +27,27 @@ public class CustomView extends LinearLayout {
 		setClickable(true);
 		setLongClickable(true);
 		mScroller = new Scroller(context);
-		mGestureDetector = new GestureDetector(context, new CustomGestureListener());
+		Animation scaleAnimation = new ScaleAnimation(1, 0, 1, 0, 2, 0.5f ,2,0.5f);
+		scaleAnimation.setDuration(5000);
+		
+		
+		Animation alphaAnimation = new AlphaAnimation(0.1f, 1f);
+		alphaAnimation.setDuration(2000);
+		AnimationSet aset = new AnimationSet(true);
+		aset.addAnimation(alphaAnimation);
+		aset.addAnimation(scaleAnimation);
+		
+		this.setAnimation(aset);
+//		this.setAnimation(scaleAnimation);
+//		this.setAnimation(alphaAnimation);
+//		mGestureDetector = new GestureDetector(context, new CustomGestureListener());
+		 
 	}
-
+	@Override
+	public void setOnClickListener(OnClickListener l) {
+		// TODO Auto-generated method stub
+		super.setOnClickListener(l);
+	}
 	//调用此方法滚动到目标位置
 	public void smoothScrollTo(int fx, int fy) {
 		int dx = fx - mScroller.getFinalX();
@@ -57,13 +77,24 @@ public class CustomView extends LinearLayout {
 		}
 		super.computeScroll();
 	}
-	
+	float starty,startx;
+	int logy = 0;
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			starty = event.getY();
+			startx = event.getX();
+			break;
+		case MotionEvent.ACTION_MOVE:
+			mScroller.startScroll(getScrollX(),getScrollY(), (int)(startx - event.getX()),(int)(starty - event.getY()),0);
+			starty = event.getY();
+			startx = event.getX();
+			postInvalidate();
+			break;
 		case MotionEvent.ACTION_UP :
-			Log.i(TAG, "get Sy" + getScrollY());
-			smoothScrollTo(0, 0);
+			mScroller.startScroll(0,0,0,0,0);
+			postInvalidate();
 			break;
 		default:
 			return mGestureDetector.onTouchEvent(event);

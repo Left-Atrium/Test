@@ -41,11 +41,8 @@ public class OnTouchEventActivity extends Activity {
 		float y = event.getY();
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
-			Log.i("parentoutput", "DownX = " + x);
-			Log.i("parentoutput", "DownY = " + y);
 			break;
 		case MotionEvent.ACTION_MOVE:
-			myscroller.startScroll((int)x, 0, dx, dy);
 			break;
 		default:
 			break;
