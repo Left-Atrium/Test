@@ -91,7 +91,6 @@ public class MultiViewGroup extends ViewGroup {
 	
 	@Override
 	public void computeScroll() {
-		super.computeScroll();
 		if(mScroller.computeScrollOffset()){
 			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
 			postInvalidate();

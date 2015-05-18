@@ -4,13 +4,13 @@ package com.afuture;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.afuture.listview.ListViewActivity;
+
+import dialog.ProgressDialogActivity;
 
 public class MainActivity extends Activity {
 	Button listview;
@@ -27,7 +27,13 @@ public class MainActivity extends Activity {
 				startActivity(listViewIntent);
 			}
 		});
-		
+		findViewById(R.id.Dialog).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(MainActivity.this,ProgressDialogActivity.class));
+			}
+		});
 	}
 
 }
