@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.afuture.SaveInfo.QQ;
 import com.afuture.listview.ListViewActivity;
 
 import dialog.ProgressDialogActivity;
@@ -45,7 +44,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(MainActivity.this,
-						QQ.class));
+						MyActivity.class));
 			}
 		});
 

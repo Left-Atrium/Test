@@ -29,25 +29,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".listview.ListViewActivity"
+            android:name="com.afuture.listview.ListViewActivity"
             android:label="@string/title_activity_list_view" >
         </activity>
         <activity
-            android:name=".listview.MyListActivity"
+            android:name="com.afuture.listview.listview.MyListActivity"
             android:label="@string/title_activity_my_list" >
         </activity>
         <activity
-            android:name=".listview.SimpleCursorAdapterListView"
+            android:name="com.afuture.listview.listview.SimpleCursorAdapterListView"
             android:label="@string/title_activity_simple_cursor" >
         </activity>
         
          <activity
-            android:name=".listview.MyAdapter"
+            android:name="com.afuture.listview.listview.MyAdapter"
             android:label="@string/title_activity_simple_cursor" >
         </activity>
         
         <activity
-            android:name=".listview.SimpleAdapterActivity"
+            android:name="com.afuture.listview.listview.SimpleAdapterActivity"
             android:label="@string/title_activity_simple_adapter" >
         </activity>
         <activity
